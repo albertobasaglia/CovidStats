@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Covid-19 Stats'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

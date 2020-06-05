@@ -7,13 +7,21 @@ class SimpleState {
   int deaths;
   int todayDeaths;
   int recovered;
+  int todayRecovered;
   int active;
   int critical;
-  int casesPerOneMillion;
-  int deathsPerOneMillion;
+  double casesPerOneMillion;
+  double deathsPerOneMillion;
   int tests;
   int testsPerOneMillion;
+  int population;
   String continent;
+  int oneCasePerPeople;
+  int oneDeathPerPeople;
+  int oneTestPerPeople;
+  double activePerOneMillion;
+  double recoveredPerOneMillion;
+  double criticalPerOneMillion;
 
   SimpleState(
       {this.updated,
@@ -24,13 +32,21 @@ class SimpleState {
       this.deaths,
       this.todayDeaths,
       this.recovered,
+      this.todayRecovered,
       this.active,
       this.critical,
       this.casesPerOneMillion,
       this.deathsPerOneMillion,
       this.tests,
       this.testsPerOneMillion,
-      this.continent});
+      this.population,
+      this.continent,
+      this.oneCasePerPeople,
+      this.oneDeathPerPeople,
+      this.oneTestPerPeople,
+      this.activePerOneMillion,
+      this.recoveredPerOneMillion,
+      this.criticalPerOneMillion});
 
   SimpleState.fromJson(Map<String, dynamic> json) {
     updated = json['updated'];
@@ -43,13 +59,21 @@ class SimpleState {
     deaths = json['deaths'];
     todayDeaths = json['todayDeaths'];
     recovered = json['recovered'];
+    todayRecovered = json['todayRecovered'];
     active = json['active'];
     critical = json['critical'];
-    casesPerOneMillion = json['casesPerOneMillion'];
-    deathsPerOneMillion = json['deathsPerOneMillion'];
+    casesPerOneMillion = json['casesPerOneMillion'].toDouble();
+    deathsPerOneMillion = json['deathsPerOneMillion'].toDouble();
     tests = json['tests'];
     testsPerOneMillion = json['testsPerOneMillion'];
+    population = json['population'];
     continent = json['continent'];
+    oneCasePerPeople = json['oneCasePerPeople'];
+    oneDeathPerPeople = json['oneDeathPerPeople'];
+    oneTestPerPeople = json['oneTestPerPeople'];
+    activePerOneMillion = json['activePerOneMillion'].toDouble();
+    recoveredPerOneMillion = json['recoveredPerOneMillion'].toDouble();
+    criticalPerOneMillion = json['criticalPerOneMillion'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -64,13 +88,21 @@ class SimpleState {
     data['deaths'] = this.deaths;
     data['todayDeaths'] = this.todayDeaths;
     data['recovered'] = this.recovered;
+    data['todayRecovered'] = this.todayRecovered;
     data['active'] = this.active;
     data['critical'] = this.critical;
     data['casesPerOneMillion'] = this.casesPerOneMillion;
     data['deathsPerOneMillion'] = this.deathsPerOneMillion;
     data['tests'] = this.tests;
     data['testsPerOneMillion'] = this.testsPerOneMillion;
+    data['population'] = this.population;
     data['continent'] = this.continent;
+    data['oneCasePerPeople'] = this.oneCasePerPeople;
+    data['oneDeathPerPeople'] = this.oneDeathPerPeople;
+    data['oneTestPerPeople'] = this.oneTestPerPeople;
+    data['activePerOneMillion'] = this.activePerOneMillion;
+    data['recoveredPerOneMillion'] = this.recoveredPerOneMillion;
+    data['criticalPerOneMillion'] = this.criticalPerOneMillion;
     return data;
   }
 }
